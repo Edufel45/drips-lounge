@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ site.business_name }} | Drinks &amp; Free Delivery</title><meta name="description" content="Order whisky, gin, vodka, brandy and beer on WhatsApp. Free delivery in {{ site.delivery_zones }}."><link rel="icon" href="{{ favicon_url }}"><link rel="apple-touch-icon" href="{{ favicon_url }}">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#14141c;--line:#262633;--tx:#f4f1ea;--mu:#9a98a6;--gold:#e8b54a;--pink:#ff2e88;--cy:#22e0d0;--wa:#25d366;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--tx);font-family:Outfit,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.bn{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.04em;font-weight:400}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,10,15,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}.logo b{font-family:'Bebas Neue',Impact,sans-serif;font-size:26px;letter-spacing:.08em;line-height:1;font-weight:400}.logo small{display:block;font-size:9px;letter-spacing:.5em;color:var(--gold)}
+.links{display:flex;gap:26px;font-size:14px;color:var(--mu)}.links a:hover{color:var(--gold)}
+.cartbtn{background:var(--gold);color:#111;padding:9px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.cartbtn span{background:#111;color:var(--gold);border-radius:20px;padding:1px 8px;margin-left:6px;font-size:12px}
+@media(max-width:720px){.links{display:none}}
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(60% 60% at 75% 30%,rgba(255,46,136,.22),transparent),radial-gradient(50% 50% at 15% 80%,rgba(34,224,208,.15),transparent),var(--bg)}
+.hero h1{font-size:clamp(64px,14vw,170px);line-height:.86}
+.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--gold)}
+.hero p{max-width:480px;color:var(--mu);font-size:18px;margin:22px 0 30px;line-height:1.6}
+.pill{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:30px;font-size:12px;letter-spacing:.2em;margin-bottom:20px}
+.btn{display:inline-block;padding:15px 30px;border-radius:40px;font-weight:600;background:linear-gradient(90deg,var(--pink),#ff7a3d);box-shadow:0 10px 40px -10px var(--pink);transition:.3s}.btn:hover{transform:translateY(-3px)}
+.btn.o{background:none;border:1px solid var(--line);box-shadow:none;margin-left:10px}
+.drip{position:absolute;top:0;width:10px;border-radius:0 0 10px 10px;background:linear-gradient(var(--gold),var(--pink));animation:dr 5s ease-in-out infinite}
+@keyframes dr{0%,100%{height:30px}50%{height:var(--h)}}
+.bottle-hero{position:absolute;right:6%;bottom:8%;width:min(340px,38vw);filter:drop-shadow(0 0 60px rgba(232,181,74,.35));animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-18px) rotate(2deg)}}
+@media(max-width:720px){.bottle-hero{opacity:.25;right:-10%}}
+.mq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:16px 0;background:#0e0e15}
+.mq div{display:inline-block;animation:mq 28s linear infinite;font-family:'Bebas Neue',Impact,sans-serif;font-size:28px;letter-spacing:.1em;color:var(--mu)}
+.mq i{color:var(--pink);font-style:normal;margin:0 22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:90px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:34px}
+.sh h2{font-size:clamp(40px,6vw,72px);line-height:1}.sh h2 span{color:var(--gold)}
+.search{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:12px 20px;color:var(--tx);font:inherit;width:260px;max-width:100%}
+.tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-bottom:28px}
+.tabs button{white-space:nowrap;background:var(--card);border:1px solid var(--line);padding:10px 20px;border-radius:30px;font-size:14px;color:var(--mu);transition:.2s}
+.tabs button.on,.tabs button:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;position:relative;transition:.3s;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 50px -20px rgba(232,181,74,.4)}
+.card svg{height:150px;width:100%;display:block;margin-bottom:12px;transition:.4s}.card:hover svg{transform:scale(1.08) rotate(-3deg)}
+.card small{color:var(--mu);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.card h3{font-size:22px;margin:4px 0 12px;font-family:Outfit,sans-serif;font-weight:600;letter-spacing:0}
+.row{display:flex;justify-content:space-between;align-items:center}
+.price{font-family:'Bebas Neue',Impact,sans-serif;font-size:26px;color:var(--gold)}
+.add{background:var(--tx);color:#111;width:40px;height:40px;border-radius:50%;font-size:22px;transition:.2s}.add:hover{background:var(--pink);color:#fff}
+.tag{position:absolute;top:14px;left:14px;background:var(--pink);font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
+.offer{background:linear-gradient(120deg,#2a0a1e,#1a1230 60%,#0a2a2a);border:1px solid var(--line);border-radius:28px;padding:50px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.offer h2{font-size:clamp(40px,6vw,78px);line-height:.95}.offer h2 span{color:var(--cy)}
+.combo{background:rgba(255,255,255,.05);border-radius:20px;padding:24px}.combo li{list-style:none;padding:8px 0;border-bottom:1px dashed var(--line)}
+@media(max-width:720px){.offer{grid-template-columns:1fr;padding:28px}}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.feat>div{padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.feat b{font-size:34px;display:block;margin-bottom:8px}.feat h3{font-size:26px;color:var(--gold);margin-bottom:6px}.feat p{color:var(--mu);font-size:15px;line-height:1.5}
+.contact{text-align:center}.contact h2{font-size:clamp(44px,8vw,110px);line-height:.9;margin-bottom:20px}
+footer{border-top:1px solid var(--line);padding:30px 0 90px;color:var(--mu);font-size:13px;text-align:center;line-height:1.8}
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:62px;height:62px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.5);animation:pu 2.2s infinite}
+@keyframes pu{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 22px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(400px,100%);background:#101018;border-left:1px solid var(--line);z-index:80;transform:translateX(105%);transition:.4s;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 22px calc(22px + env(safe-area-inset-bottom,0px))}
+.drawer.open{transform:none}.drawer h2{font-size:38px;margin-bottom:14px}
+#items{flex:1;overflow:auto}.it{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:10px;font-size:15px}
+.q button{background:var(--card);width:28px;height:28px;border-radius:50%}.q span{margin:0 8px}
+.tot{display:flex;justify-content:space-between;font-size:20px;padding:16px 0}
+.go{display:block;text-align:center;background:var(--wa);color:#04210f;font-weight:600;padding:15px;border-radius:40px}
+.gate{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 30%,#2a0a1e,#07070b);display:grid;place-items:center;text-align:center;padding:24px}
+.gate h2{font-size:clamp(46px,9vw,90px);line-height:.95;margin:16px 0}.gate p{color:var(--mu);max-width:420px;margin:0 auto 26px}
+.rv{opacity:0;transform:translateY(30px);transition:.8s}.rv.in{opacity:1;transform:none}
+.i3{width:84px;height:84px;margin-bottom:10px;perspective:400px}.i3 svg{width:100%;height:100%;transition:.5s;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))}.feat div:hover .i3 svg{transform:rotateY(25deg) rotateX(-12deg) scale(1.12)}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.lg svg{width:100%;border-radius:24px;border:1px solid var(--line)}
+.lg p{color:var(--mu);line-height:1.7;margin:16px 0 22px}
+.mp{display:grid;grid-template-columns:340px 1fr;gap:20px}
+.bl button{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:10px;transition:.2s}.bl button.on,.bl button:hover{border-color:var(--gold)}.bl b{font-size:20px;display:block}.bl small{color:var(--mu)}
+.mw{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;position:relative}.mw svg{width:100%;display:block}
+.pin{cursor:pointer}.pin circle{fill:var(--pink);transition:.3s}.pin.on circle{fill:var(--gold)}.pin text{fill:#fff;font-size:11px;font-weight:600}
+.det{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(10,10,15,.92);border:1px solid var(--gold);border-radius:16px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.det a{background:var(--gold);color:#111;padding:9px 18px;border-radius:30px;font-weight:600;font-size:14px}
+@media(max-width:820px){.lg,.mp{grid-template-columns:1fr}}
+.tabs{margin-bottom:0;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tabs::-webkit-scrollbar,.bl::-webkit-scrollbar{display:none}.tabs button{scroll-snap-align:start}
+.tw{position:relative;margin-bottom:28px}.tw::after{content:"\203A";position:absolute;right:0;top:0;bottom:10px;width:64px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:34px;color:var(--gold);background:linear-gradient(90deg,transparent,var(--bg) 75%);pointer-events:none;transition:opacity .3s;animation:nd 1.2s ease-in-out infinite}
+.tw.end::after{opacity:0;animation:none}@keyframes nd{50%{padding-right:0}}
+.sw{display:none;font-size:12px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+@media(max-width:820px){.sw{display:block}.bl{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-right:-20px;padding-right:20px;scrollbar-width:none}.bl button{flex:0 0 31%;min-width:112px;margin:0;padding:10px;scroll-snap-align:start}.bl b{font-size:15px}.bl small{font-size:10.5px;line-height:1.3;display:block}.det{position:static;margin:0;border:0;border-top:1px solid var(--gold);border-radius:0}.mp{gap:12px}}
+@media(max-width:720px){
+section{padding:42px 0}.wrap{padding:0 14px}
+.hero{min-height:auto;padding:34px 0 38px}.hero h1{font-size:50px;line-height:.9}.hero p{font-size:15px;margin:12px 0 18px;line-height:1.5}.pill{margin-bottom:12px;font-size:11px;padding:5px 12px}
+.btn{padding:12px 22px;font-size:14px}.btn.o{margin-left:6px}.mq{padding:10px 0}.mq div{font-size:20px}
+.sh{margin-bottom:18px}.sh h2{font-size:38px}.search{width:100%}.tw{margin-bottom:14px}.tabs button{padding:8px 16px;font-size:13px}
+.grid{grid-template-columns:repeat(3,1fr);gap:8px}
+.card{padding:8px;border-radius:14px}.card svg{height:84px;margin-bottom:6px}
+.card small{display:block;font-size:8.5px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card h3{font-size:12px;line-height:1.25;margin:3px 0 6px;min-height:30px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .row{flex-direction:column;align-items:stretch;gap:5px}.price{font-size:17px}.add{width:100%;height:30px;border-radius:10px;font-size:18px}
+.tag{top:5px;left:5px;font-size:8.5px;padding:2px 6px}
+.offer{padding:22px}.offer h2{font-size:42px}.combo{padding:14px}
+.feat{grid-template-columns:repeat(3,1fr);gap:8px}.feat>div{padding:12px 6px;text-align:center;border-radius:16px}.i3{width:52px;height:52px;margin:0 auto 6px}.feat h3{font-size:16px;margin-bottom:3px}.feat p{font-size:11px;line-height:1.35}
+.feat>div:nth-child(4){grid-column:1/-1;display:flex;align-items:center;gap:12px;text-align:left;padding:10px 14px}.feat>div:nth-child(4) .i3{margin:0;flex:none;width:44px;height:44px}.feat>div:nth-child(4) h3{margin:0}
+.lg{gap:18px}.contact h2{font-size:52px}footer{padding-bottom:90px}}
+.card .pi{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;margin-bottom:12px;background:#fff;border-radius:12px;cursor:zoom-in;transition:.4s}.card:hover .pi{transform:scale(1.03)}
+@media(max-width:720px){.card .pi{margin-bottom:6px;border-radius:10px}}
+.loc{display:grid;grid-template-columns:1fr 1.3fr;gap:20px}.loc iframe{width:100%;height:100%;min-height:320px;border:0;border-radius:24px}
+.info{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}.info h3{font-size:30px;color:var(--gold);margin:0 0 12px}.info p{color:var(--mu);line-height:1.6;margin-bottom:14px}.info .free{border:1px solid var(--cy);color:var(--cy);border-radius:16px;padding:12px 16px;margin-bottom:16px;font-size:15px;line-height:1.5}
+@media(max-width:820px){.loc{grid-template-columns:1fr}.loc iframe{min-height:260px}}
+.add{display:grid;place-items:center}.add svg{width:19px;height:19px}
+.lb{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.94);display:none;flex-direction:column;overflow:auto;padding:56px 14px 20px}.lb.on{display:flex}
+.lb img{margin:auto;max-width:100%;max-height:68vh;border-radius:16px;background:#fff;cursor:zoom-in}.lb img.z{max-width:none;max-height:none;width:190%;cursor:zoom-out}
+.lbt{text-align:center;margin:14px auto 0;font-size:16px}.lbx{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:14px;z-index:96;width:42px;height:42px;border-radius:50%;background:var(--tx);color:#111;font-size:28px;line-height:1}
+.lg img{width:100%;max-height:640px;object-fit:cover;object-position:top;border-radius:24px;border:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate"><div>
+<img src="{{ emblem_url }}" alt="" style="height:90px;mix-blend-mode:lighten">
+<h2>ARE YOU<br>18 OR OLDER?</h2>
+<p>Drips Lounge sells alcohol. You must be of legal drinking age to enter this site.</p>
+<button class="btn" onclick="enter()">YES, ENTER</button>
+<a class="btn o" href="https://www.google.com">NO, LEAVE</a>
+</div></div>
+
+<nav><div class="wrap">
+<a class="logo" href="#home"><img src="{{ emblem_url }}" alt="" style="height:44px;mix-blend-mode:lighten"><div><b>DRIPS</b><small>LOUNGE</small></div></a>
+<div class="links"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#why">Why Us</a><a href="#lounge">Our Lounge</a><a href="#locations">Find Us</a><a href="#contact">Contact</a></div>
+<button class="cartbtn" onclick="tg()">Cart<span id="cc">0</span></button>
+</div></nav>
+
+<header class="hero" id="home">
+<i class="drip" style="left:12%;--h:120px"></i><i class="drip" style="left:31%;--h:70px;animation-delay:1s"></i><i class="drip" style="left:58%;--h:150px;animation-delay:.5s"></i><i class="drip" style="left:83%;--h:90px;animation-delay:1.6s"></i>
+<img class="bottle-hero" src="{{ logo_url }}" alt="{{ site.business_name }}" style="mix-blend-mode:lighten">
+<div class="wrap" style="position:relative;z-index:2">
+<span class="pill">WHISKY · GIN · VODKA · BRANDY · BEER</span>
+<h1>STAY<br><em>COLD.</em><br>STAY DRIPPING.</h1>
+<p>Every brand you love, one tap away. Order on WhatsApp. Free delivery in {{ site.delivery_zones }}.</p>
+<a class="btn" href="#shop">SHOP THE BAR</a><a class="btn o" href="#locations">FREE DELIVERY</a>
+</div></header>
+
+<div class="mq"><div id="mq"></div></div>
+
+<section id="shop"><div class="wrap">
+<div class="sh rv"><h2>THE <span>COLLECTION</span></h2><input class="search" id="q" placeholder="Search your drink…" oninput="lim=12;draw()"></div>
+<div class="sw">Swipe to see all categories</div><div class="tw" id="tw"><div class="tabs" id="tabs"></div></div>
+<div class="grid" id="grid"></div><div id="more" style="text-align:center;margin-top:30px"></div>
+</div></section>
+
+
+<section id="why"><div class="wrap">
+<div class="sh rv"><h2>WHY <span>DRIPS</span></h2></div>
+<div class="feat rv">
+<div><div class="i3"><svg viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="20" ry="4" fill="#000" opacity=".4"/><polygon points="32,6 54,18 32,30 10,18" fill="#d7fbff"/><polygon points="10,18 32,30 32,56 10,44" fill="#22b8d0"/><polygon points="54,18 32,30 32,56 54,44" fill="#0e7490"/><polygon points="18,16 30,10 36,13 24,20" fill="#fff" opacity=".7"/></svg></div><h3>ICE COLD</h3><p>Chilled stock, always ready to go.</p></div>
+<div><div class="i3"><svg viewBox="0 0 64 64"><defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#e8b54a"/><stop offset="1" stop-color="#b8741a"/></linearGradient></defs><ellipse cx="32" cy="59" rx="18" ry="4" fill="#000" opacity=".4"/><polygon points="38,4 12,36 28,36 22,60 52,24 34,24" fill="#7a4a0e" transform="translate(3,3)"/><polygon points="38,4 12,36 28,36 22,60 52,24 34,24" fill="url(#gb)"/><polygon points="38,4 22,26 30,26 40,10" fill="#fff" opacity=".6"/></svg></div><h3>FAST DELIVERY</h3><p>Order in minutes, drinks at your door.</p></div>
+<div><div class="i3"><svg viewBox="0 0 64 64"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ff7aae"/><stop offset=".5" stop-color="#ff2e88"/><stop offset="1" stop-color="#8a0e4a"/></linearGradient><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#e8b54a"/><stop offset="1" stop-color="#8a5a10"/></linearGradient></defs><ellipse cx="32" cy="60" rx="26" ry="3.500" fill="#000" opacity=".4"/><path d="M8 24h8v-6h4v6h8v32a3 3 0 01-3 3H11a3 3 0 01-3-3z" fill="url(#g2)"/><path d="M26 16h8v-8h4v8h8v40a3 3 0 01-3 3H29a3 3 0 01-3-3z" fill="url(#g1)" transform="translate(8,0)"/><path d="M44 28h8v-6h4v6h4v28a3 3 0 01-3 3H47a3 3 0 01-3-3z" fill="#22e0d0" opacity=".9"/><rect x="38" y="28" width="3" height="26" rx="1.500" fill="#fff" opacity=".5"/></svg></div><h3>ALL BRANDS</h3><p>Whisky, gin, vodka, brandy, beer and more.</p></div>
+<div><div class="i3"><svg viewBox="0 0 64 64"><defs><radialGradient id="ga" cx=".35" cy=".3"><stop offset="0" stop-color="#ff9ac0"/><stop offset=".6" stop-color="#e0185f"/><stop offset="1" stop-color="#6a0a30"/></radialGradient></defs><ellipse cx="32" cy="59" rx="20" ry="4" fill="#000" opacity=".4"/><circle cx="32" cy="30" r="26" fill="url(#ga)"/><circle cx="32" cy="30" r="21" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><text x="32" y="39" text-anchor="middle" font-family="Bebas Neue,Impact,sans-serif" font-size="26" fill="#fff">18+</text><ellipse cx="22" cy="14" rx="9" ry="5" fill="#fff" opacity=".5" transform="rotate(-30 22 14)"/></svg></div><h3>18+ ONLY</h3><p>Responsible service. ID may be checked on delivery.</p></div>
+</div></div></section>
+
+<section id="lounge"><div class="wrap lg rv">
+<img src="{{ lounge_url }}" alt="Inside Drips Lounge" loading="lazy" onclick="lbo(this.src)" style="cursor:zoom-in">
+<div><span class="pill">OUR LOUNGE · NAIROBI</span><div class="sh" style="margin:0"><h2>COME FOR THE <span>VIBE</span></h2></div><p>Cold drinks, good music and the best selection in town. Walk in, or order to your door.</p><a class="btn" href="#locations">FIND A BRANCH</a></div></div></section>
+<section id="locations"><div class="wrap">
+<div class="sh rv"><h2>FIND <span>US</span></h2></div>
+<div class="loc rv"><div class="info"><h3>{{ site.business_name }}</h3>
+<p><b style="color:var(--tx)">Address</b><br>{{ site.address }}</p>
+{% if site.hours %}<p><b style="color:var(--tx)">Hours</b><br>{{ site.hours }}</p>{% endif %}
+<div class="free"><b>FREE DELIVERY</b> within {{ site.delivery_zones }}.<br><small style="color:var(--mu)">{{ site.delivery_note }}</small></div>
+<a class="btn" target="_blank" rel="noopener" href="{{ site.map_link }}">OPEN IN GOOGLE MAPS</a></div>
+<iframe loading="lazy" title="Map" src="https://www.google.com/maps?q={{ site.map_query|urlencode }}&amp;output=embed"></iframe></div></div></section>
+<section class="contact" id="contact"><div class="wrap rv">
+<h2>THIRSTY?<br><span style="color:var(--gold)">TEXT US.</span></h2>
+<p style="color:var(--mu);margin-bottom:26px">Free delivery in {{ site.delivery_zones }}</p>
+<a class="btn" id="wa2" target="_blank" rel="noopener">ORDER ON WHATSAPP</a><a class="btn o" href="tel:{{ site.phone_display|cut:" " }}">CALL {{ site.phone_display }}</a>
+</div></section>
+
+<footer><div class="wrap">© 2026 {{ site.business_name }} · {{ site.address }} · {{ site.phone_display }}<br>Must be 18+. Please drink responsibly. Prices in KES and subject to change.</div></footer>
+
+<a class="wa" id="wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="34" height="34" viewBox="0 0 32 32" fill="#fff"><path d="M16 3a13 13 0 00-11 19.7L3 29l6.5-2A13 13 0 1016 3zm0 23.5c-2 0-3.900-.6-5.500-1.600l-.4-.2-3.800 1 1-3.700-.3-.4A10.500 10.500 0 1116 26.500zm5.800-7.800c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.500 8.500 0 01-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6a1.200 1.200 0 00-.9.400 3.700 3.700 0 00-1.100 2.700 6.400 6.400 0 001.300 3.400 14.600 14.600 0 005.600 4.900c2 .8 2.700.9 3.700.7a3.100 3.100 0 002-1.400 2.500 2.500 0 00.2-1.400c-.1-.2-.3-.3-.6-.4z"/></svg></a>
+
+<aside class="drawer" id="dw"><h2>YOUR ORDER</h2><div id="items"></div>
+<div class="tot"><span>Total</span><b class="price" id="tot">KES 0</b></div>
+<a class="go" id="send" target="_blank" rel="noopener">SEND ORDER ON WHATSAPP</a>
+<button style="margin-top:12px;background:none;color:var(--mu)" onclick="tg()">Close</button></aside>
+
+<div class="lb" id="lb" onclick="lbc()"><button class="lbx" aria-label="Close">&times;</button><img id="lbi" alt=""><div class="lbt" id="lbt"></div></div>
+{{ products|json_script:"pdata" }}{{ cats|json_script:"cdata" }}
+<script>
+var NUM="{{ site.whatsapp }}";
+var C={"Whisky":"#c8741a","Gin":"#5fd0b0","Vodka":"#9ad7ff","Brandy":"#a8421c","Cream & Liqueur":"#d9b38c","RTD & Mixers":"#3fae5a","Beer & Cider":"#e8b54a"};
+var P=JSON.parse(document.getElementById("pdata").textContent),CATS=JSON.parse(document.getElementById("cdata").textContent);
+function lbo(src,h){var i=document.getElementById("lbi");i.classList.remove("z");i.src=src;document.getElementById("lbt").innerHTML=h||'<small style="color:var(--mu)">Tap the photo to zoom</small>';document.getElementById("lb").classList.add("on");document.body.style.overflow="hidden"}
+function lbc(){document.getElementById("lb").classList.remove("on");document.body.style.overflow=""}
+function zm(i){var p=P[i];lbo(p[5],'<b>'+p[0]+'</b> <small style="color:var(--mu)">'+p[2]+'</small><br><span class="price">'+fm(p[3])+'</span><br><button class="btn" style="margin-top:8px" onclick="event.stopPropagation();lbc();add('+i+')">ADD TO CART</button><br><small style="color:var(--mu)">Tap the photo to zoom</small>')}
+document.getElementById("lbi").onclick=function(e){e.stopPropagation();this.classList.toggle("z")};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")lbc()});
+var cat="All",cart={};
+function bt(c,t){var f=C[c]||"#e8b54a";
+if(t==="Beer & Cider")return '<svg viewBox="0 0 60 120"><rect x="14" y="14" width="32" height="96" rx="8" fill="'+f+'"/><rect x="14" y="40" width="32" height="40" fill="#0a0a0f" opacity=".55"/><rect x="18" y="8" width="24" height="8" rx="3" fill="#aaa"/><text x="30" y="66" text-anchor="middle" font-size="10" fill="#fff" font-family="Bebas Neue,Impact">DRIPS</text></svg>';
+return '<svg viewBox="0 0 60 120"><rect x="25" y="4" width="10" height="10" rx="2" fill="#e8b54a"/><path d="M26 14h8v22c0 8 14 12 14 28v44a6 6 0 01-6 6H18a6 6 0 01-6-6V64c0-16 14-20 14-28z" fill="'+f+'"/><path d="M26 14h8v22c0 8 14 12 14 28v44a6 6 0 01-6 6H18a6 6 0 01-6-6V64c0-16 14-20 14-28z" fill="url(#g)" opacity=".25"/><rect x="16" y="68" width="28" height="30" rx="3" fill="#0a0a0f" opacity=".7"/><text x="30" y="88" text-anchor="middle" font-size="12" fill="#e8b54a" font-family="Bebas Neue,Impact">DRIPS</text></svg>'}
+function fm(n){return n==null?"Ask for price":"KES "+n.toLocaleString("en-KE")}
+var lim=12;function tabs(){lim=12;var h="";["All"].concat(CATS).forEach(function(c){h+='<button class="'+(c===cat?"on":"")+'" onclick="cat=\''+c+'\';tabs();draw()">'+c+'</button>'});var T=document.getElementById("tabs"),sl=T.scrollLeft;T.innerHTML=h;T.scrollLeft=sl}
+function draw(){var s=document.getElementById("q").value.toLowerCase(),m=[],h="";
+P.forEach(function(p,i){if((cat==="All"||p[1]===cat)&&p[0].toLowerCase().indexOf(s)>-1)m.push(i)});
+m.slice(0,lim).forEach(function(i){var p=P[i];h+='<div class="card">'+(p[4]?'<span class="tag">'+p[4]+'</span>':'')+(p[5]?'<img class="pi" loading="lazy" onclick="zm('+i+')" src="'+p[5]+'" alt="'+p[0].replace(/"/g,"")+'">':bt(p[1],p[1]))+'<small>'+p[1]+' · '+p[2]+'</small><h3>'+p[0]+'</h3><div class="row"><span class="price">'+fm(p[3])+'</span><button class="add" onclick="add('+i+')" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 002 1.6h8.1a2 2 0 002-1.5L21 7H6"/></svg></button></div></div>'});
+document.getElementById("grid").innerHTML=h||'<p style="color:var(--mu)">No drinks found.</p>';
+document.getElementById("more").innerHTML=m.length>lim?'<button class="btn" onclick="lim+=12;draw()">LOAD MORE ('+(m.length-lim)+' left)</button>':""}
+function add(i){cart[i]=(cart[i]||0)+1;ren();document.getElementById("dw").classList.add("open")}
+function ch(i,d){cart[i]=(cart[i]||0)+d;if(cart[i]<1)delete cart[i];ren()}
+function tg(){document.getElementById("dw").classList.toggle("open")}
+function ren(){var h="",t=0,n=0,m="Hi Drips Lounge, I’d like to order:\n";
+Object.keys(cart).forEach(function(i){var p=P[i],q=cart[i];t+=p[3]*q;n+=q;m+="• "+q+" x "+p[0]+" ("+p[2]+") - "+(p[3]==null?"price on request":fm(p[3]*q))+"\n";
+h+='<div class="it"><div>'+p[0]+'<br><small style="color:var(--mu)">'+fm(p[3])+'</small></div><div class="q"><button onclick="ch('+i+',-1)">−</button><span>'+q+'</span><button onclick="ch('+i+',1)">+</button></div></div>'});
+document.getElementById("items").innerHTML=h||'<p style="color:var(--mu)">Your cart is empty. Add something cold.</p>';
+document.getElementById("tot").textContent=fm(t);document.getElementById("cc").textContent=n;
+m+="\nTotal: "+fm(t);document.getElementById("send").href="https://wa.me/"+NUM+"?text="+encodeURIComponent(n?m:"Hi Drips Lounge, I’d like to place an order.")}
+function enter(){document.getElementById("gate").style.display="none";try{sessionStorage.setItem("ok","1")}catch(e){}}
+try{if(sessionStorage.getItem("ok"))enter()}catch(e){}
+var w="https://wa.me/"+NUM+"?text="+encodeURIComponent("Hi Drips Lounge, I’d like to place an order.");
+document.getElementById("wa").href=w;document.getElementById("wa2").href=w;
+
+var b=["JOHNNIE WALKER","JACK DANIEL’S","SMIRNOFF","TUSKER","GILBEY’S","BLACK &amp; WHITE","KONYAGI","GUINNESS","VAT 69","CAPTAIN MORGAN"],x="";
+for(var k=0;k<2;k++)b.forEach(function(n){x+=n+'<i>✦</i>'});document.getElementById("mq").innerHTML=x;
+
+
+tabs();draw();ren();
+var tt=document.getElementById("tabs"),tw=document.getElementById("tw");
+function chk(){tw.classList.toggle("end",tt.scrollLeft+tt.clientWidth>=tt.scrollWidth-6)}
+tt.addEventListener("scroll",chk);window.addEventListener("resize",chk);chk();
+try{new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();if(tt.scrollWidth>tt.clientWidth+20){tt.scrollTo({left:80,behavior:"smooth"});setTimeout(function(){tt.scrollTo({left:0,behavior:"smooth"})},900)}}},{threshold:.6}).observe(tw)}catch(e){}
+var io=new IntersectionObserver(function(e){e.forEach(function(r){if(r.isIntersecting)r.target.classList.add("in")})},{threshold:.1});
+document.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+</script>
+</body>
+</html>
