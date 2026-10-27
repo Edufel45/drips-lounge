@@ -14,7 +14,6 @@ USE_CLOUD = bool(os.environ.get("CLOUDINARY_URL"))   # product photos go to Clou
 
 INSTALLED_APPS = (
     ["django.contrib.admin", "django.contrib.auth", "django.contrib.contenttypes", "django.contrib.sessions", "django.contrib.messages"]
-    + (["cloudinary_storage"] if USE_CLOUD else [])
     + ["django.contrib.staticfiles"]
     + (["cloudinary"] if USE_CLOUD else [])
     + ["shop"]
