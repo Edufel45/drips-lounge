@@ -15,14 +15,14 @@
 <meta property="og:url" content="https://dripslounge.co.ke/">
 <meta property="og:title" content="{{ site.business_name }} | Premium Spirits & Free Delivery">
 <meta property="og:description" content="Order whisky, beer, and spirits online. Free delivery in {{ site.delivery_zones }}. Order via WhatsApp.">
-<meta property="og:image" content="{{ logo_url }}">
+<meta property="og:image" content="application = get_wsgi_application()">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://dripslounge.co.ke/">
 <meta property="twitter:title" content="{{ site.business_name }} | Premium Spirits & Free Delivery">
 <meta property="twitter:description" content="Order whisky, beer, and spirits online. Free delivery in {{ site.delivery_zones }}. Order via WhatsApp.">
-<meta property="twitter:image" content="{{ logo_url }}">
+<meta property="twitter:image" content="application = get_wsgi_application()">
 
 <!-- Preconnect for Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "LiquorStore",
   "name": "{{ site.business_name }}",
-  "image": "{{ logo_url }}",
+  "image": "application = get_wsgi_application()",
   "@id": "https://dripslounge.co.ke",
   "url": "https://dripslounge.co.ke",
   "telephone": "{{ site.whatsapp }}",
@@ -189,7 +189,7 @@ section{padding:42px 0}.wrap{padding:0 14px}
 
 <header class="hero" id="home">
 <i class="drip" style="left:12%;--h:120px"></i><i class="drip" style="left:31%;--h:70px;animation-delay:1s"></i><i class="drip" style="left:58%;--h:150px;animation-delay:.5s"></i><i class="drip" style="left:83%;--h:90px;animation-delay:1.6s"></i>
-<img class="bottle-hero" src="{{ logo_url }}" alt="{{ site.business_name }} Premium Bottle" style="mix-blend-mode:lighten">
+<img class="bottle-hero" src="application = get_wsgi_application()" alt="{{ site.business_name }} Premium Bottle" style="mix-blend-mode:lighten">
 <div class="wrap" style="position:relative;z-index:2">
 <span class="pill">WHISKY · GIN · VODKA · BRANDY · BEER</span>
 <h1>STAY<br><em>COLD.</em><br>STAY DRIPPING.</h1>
