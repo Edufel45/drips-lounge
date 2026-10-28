@@ -3,8 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{{ site.business_name }} | Drinks &amp; Free Delivery</title><meta name="description" content="Order whisky, gin, vodka, brandy and beer on WhatsApp. Free delivery in {{ site.delivery_zones }}."><link rel="icon" href="{{ favicon_url }}"><link rel="apple-touch-icon" href="{{ favicon_url }}">
+<title>{{ site.business_name }} | Premium Liquor Store & Free Delivery in Nairobi</title>
+<meta name="description" content="Order whisky, gin, vodka, brandy and beer on WhatsApp from {{ site.business_name }}. Premium liquor store in Mowlem, Nairobi. Free delivery in {{ site.delivery_zones }}.">
+<meta name="keywords" content="liquor store Nairobi, buy alcohol Mowlem, whisky delivery Nairobi, {{ site.business_name }}, free alcohol delivery Umoja, Buruburu, Dandora, Komarock, Kangundo Road">
+<meta name="robots" content="index, follow">
+<meta name="author" content="{{ site.business_name }}">
+<link rel="canonical" href="https://dripslounge.co.ke/">
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dripslounge.co.ke/">
+<meta property="og:title" content="{{ site.business_name }} | Premium Spirits & Free Delivery">
+<meta property="og:description" content="Order whisky, beer, and spirits online. Free delivery in {{ site.delivery_zones }}. Order via WhatsApp.">
+<meta property="og:image" content="{{ logo_url }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://dripslounge.co.ke/">
+<meta property="twitter:title" content="{{ site.business_name }} | Premium Spirits & Free Delivery">
+<meta property="twitter:description" content="Order whisky, beer, and spirits online. Free delivery in {{ site.delivery_zones }}. Order via WhatsApp.">
+<meta property="twitter:image" content="{{ logo_url }}">
+
+<!-- Preconnect for Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="icon" href="{{ favicon_url }}">
+<link rel="apple-touch-icon" href="{{ favicon_url }}">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Local Business Schema (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LiquorStore",
+  "name": "{{ site.business_name }}",
+  "image": "{{ logo_url }}",
+  "@id": "https://dripslounge.co.ke",
+  "url": "https://dripslounge.co.ke",
+  "telephone": "{{ site.whatsapp }}",
+  "priceRange": "KES",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.address }}",
+    "addressLocality": "Nairobi",
+    "addressCountry": "KE"
+  },
+  "areaServed": [
+    "Umoja", "Saika", "Buruburu", "Dandora", "Komarock"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "08:00",
+    "closes": "23:00"
+  }
+}
+</script>
+
 <style>
 :root{--bg:#0a0a0f;--card:#14141c;--line:#262633;--tx:#f4f1ea;--mu:#9a98a6;--gold:#e8b54a;--pink:#ff2e88;--cy:#22e0d0;--wa:#25d366;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:80px}
@@ -118,7 +174,7 @@ section{padding:42px 0}.wrap{padding:0 14px}
 <body>
 
 <div class="gate" id="gate"><div>
-<img src="{{ emblem_url }}" alt="" style="height:90px;mix-blend-mode:lighten">
+<img src="{{ emblem_url }}" alt="{{ site.business_name }} Logo" style="height:90px;mix-blend-mode:lighten">
 <h2>ARE YOU<br>18 OR OLDER?</h2>
 <p>Drips Lounge sells alcohol. You must be of legal drinking age to enter this site.</p>
 <button class="btn" onclick="enter()">YES, ENTER</button>
@@ -126,14 +182,14 @@ section{padding:42px 0}.wrap{padding:0 14px}
 </div></div>
 
 <nav><div class="wrap">
-<a class="logo" href="#home"><img src="{{ emblem_url }}" alt="" style="height:44px;mix-blend-mode:lighten"><div><b>DRIPS</b><small>LOUNGE</small></div></a>
+<a class="logo" href="#home"><img src="{{ emblem_url }}" alt="{{ site.business_name }} Emblem" style="height:44px;mix-blend-mode:lighten"><div><b>DRIPS</b><small>LOUNGE</small></div></a>
 <div class="links"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#why">Why Us</a><a href="#lounge">Our Lounge</a><a href="#locations">Find Us</a><a href="#contact">Contact</a></div>
 <button class="cartbtn" onclick="tg()">Cart<span id="cc">0</span></button>
 </div></nav>
 
 <header class="hero" id="home">
 <i class="drip" style="left:12%;--h:120px"></i><i class="drip" style="left:31%;--h:70px;animation-delay:1s"></i><i class="drip" style="left:58%;--h:150px;animation-delay:.5s"></i><i class="drip" style="left:83%;--h:90px;animation-delay:1.6s"></i>
-<img class="bottle-hero" src="{{ logo_url }}" alt="{{ site.business_name }}" style="mix-blend-mode:lighten">
+<img class="bottle-hero" src="{{ logo_url }}" alt="{{ site.business_name }} Premium Bottle" style="mix-blend-mode:lighten">
 <div class="wrap" style="position:relative;z-index:2">
 <span class="pill">WHISKY · GIN · VODKA · BRANDY · BEER</span>
 <h1>STAY<br><em>COLD.</em><br>STAY DRIPPING.</h1>
@@ -160,7 +216,7 @@ section{padding:42px 0}.wrap{padding:0 14px}
 </div></div></section>
 
 <section id="lounge"><div class="wrap lg rv">
-<img src="{{ lounge_url }}" alt="Inside Drips Lounge" loading="lazy" onclick="lbo(this.src)" style="cursor:zoom-in">
+<img src="{{ lounge_url }}" alt="Inside Drips Lounge in Mowlem Nairobi" loading="lazy" onclick="lbo(this.src)" style="cursor:zoom-in">
 <div><span class="pill">OUR LOUNGE · NAIROBI</span><div class="sh" style="margin:0"><h2>COME FOR THE <span>VIBE</span></h2></div><p>Cold drinks, good music and the best selection in town. Walk in, or order to your door.</p><a class="btn" href="#locations">FIND A BRANCH</a></div></div></section>
 <section id="locations"><div class="wrap">
 <div class="sh rv"><h2>FIND <span>US</span></h2></div>
@@ -169,7 +225,7 @@ section{padding:42px 0}.wrap{padding:0 14px}
 {% if site.hours %}<p><b style="color:var(--tx)">Hours</b><br>{{ site.hours }}</p>{% endif %}
 <div class="free"><b>FREE DELIVERY</b> within {{ site.delivery_zones }}.<br><small style="color:var(--mu)">{{ site.delivery_note }}</small></div>
 <a class="btn" target="_blank" rel="noopener" href="{{ site.map_link }}">OPEN IN GOOGLE MAPS</a></div>
-<iframe loading="lazy" title="Map" src="https://www.google.com/maps?q={{ site.map_query|urlencode }}&amp;output=embed"></iframe></div></div></section>
+<iframe loading="lazy" title="Map of Drips Lounge" src="https://www.google.com/maps?q={{ site.map_query|urlencode }}&amp;output=embed"></iframe></div></div></section>
 <section class="contact" id="contact"><div class="wrap rv">
 <h2>THIRSTY?<br><span style="color:var(--gold)">TEXT US.</span></h2>
 <p style="color:var(--mu);margin-bottom:26px">Free delivery in {{ site.delivery_zones }}</p>
@@ -185,7 +241,7 @@ section{padding:42px 0}.wrap{padding:0 14px}
 <a class="go" id="send" target="_blank" rel="noopener">SEND ORDER ON WHATSAPP</a>
 <button style="margin-top:12px;background:none;color:var(--mu)" onclick="tg()">Close</button></aside>
 
-<div class="lb" id="lb" onclick="lbc()"><button class="lbx" aria-label="Close">&times;</button><img id="lbi" alt=""><div class="lbt" id="lbt"></div></div>
+<div class="lb" id="lb" onclick="lbc()"><button class="lbx" aria-label="Close">&times;</button><img id="lbi" alt="Product Image"><div class="lbt" id="lbt"></div></div>
 {{ products|json_script:"pdata" }}{{ cats|json_script:"cdata" }}
 <script>
 var NUM="{{ site.whatsapp }}";
